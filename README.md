@@ -13,8 +13,8 @@ Este repositorio contiene un **notebook Jupyter** que reproduce el experimento d
 Clona el repo y crea un entorno virtual:
 
 ```bash
-git clone https://github.com/tuusuario/powercurve-xg.git
-cd powercurve-xg
+git clone https://github.com/jeke-deportivas/jeke-xg-model-basic.git
+cd jeke-xg-model-basic
 python3 -m venv venv
 source venv/bin/activate
 ````
@@ -55,8 +55,8 @@ pip install jupyter
 
 * Descarga todos los partidos de una liga/temporada desde Understat.
 * Extrae tiros y calcula distancia → probabilidad de gol.
-* Ajusta una curva de potencia $p(\text{gol}) = a \cdot d^b$ usando **MLE**.
-* Evalúa el modelo con métricas (R², Brier, RMSE, MAE).
+* Ajusta una curva de potencia $p(\text{gol}) = a \cdot d^b$.
+* Evalúa el modelo con métrica R².
 * Muestra resultados por equipo, temporada y condición local/visitante.
 
 ## 📝 Notas
