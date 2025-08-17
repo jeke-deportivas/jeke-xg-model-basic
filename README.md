@@ -1,6 +1,6 @@
 # ⚽ Power Curve xG - Experimento en Jupyter
 
-Este repositorio contiene un **notebook Jupyter** que reproduce el experimento de Jeke Deportivas sobre la **curva de potencia para modelar goles esperados (xG)** en fútbol, utilizando datos de [Understat](https://understat.com).
+Este repositorio contiene un **notebook Jupyter** que reproduce el experimento de [Jeke Deportivas en YouTube](https://youtu.be/0gqfQWc6teQ) sobre la **curva de potencia para modelar goles esperados (xG)** en fútbol, utilizando datos de [Understat](https://understat.com).
 
 ## 📦 Requisitos
 
