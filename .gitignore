@@ -1,0 +1,7 @@
+# venvs
+.venv*/
+venv/
+# Jupyter
+.ipynb_checkpoints/
+# OS / IDE
+.DS_Store
