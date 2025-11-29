@@ -6,7 +6,7 @@ Este repositorio contiene un **notebook Jupyter** que reproduce el experimento d
 
 ## 📦 Requisitos
 
-- **Python 3.12.x** (recomendado usar [pyenv](https://github.com/pyenv/pyenv) para fijar la versión local).
+- **Python 3.13.9** (recomendado usar [pyenv](https://github.com/pyenv/pyenv) para fijar la versión local).
 - [pip](https://pip.pypa.io/en/stable/).
 - JupyterLab.
 
@@ -21,8 +21,8 @@ Clona el repo y crea un entorno virtual:
 git clone https://github.com/jeke-deportivas/jeke-xg-model-basic.git
 cd jeke-xg-model-basic
 
-# asegúrate de estar en Python 3.12.x
-pyenv local 3.12.5
+# asegúrate de estar en Python 3.13.9
+pyenv local 3.13.9
 
 # crea el entorno
 python3 -m venv .venv-understatapi
