@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+REQUIRED_VERSION=$(cat .python-version)
+
+if command -v pyenv &> /dev/null; then
+    if ! pyenv versions | grep -q "$REQUIRED_VERSION"; then
+        echo "Python $REQUIRED_VERSION no está instalado. Instalando con pyenv..."
+        pyenv install "$REQUIRED_VERSION"
+    fi
+fi
+
+CURRENT_VERSION=$(python --version 2>&1 | cut -d' ' -f2)
+if [[ "$CURRENT_VERSION" != "$REQUIRED_VERSION" ]]; then
+    echo "Error: Se requiere Python $REQUIRED_VERSION pero tienes $CURRENT_VERSION"
+    echo "Instala la versión correcta con: pyenv install $REQUIRED_VERSION"
+    exit 1
+fi
+
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+echo ""
+echo "Setup completado. Activa el entorno con:"
+echo "  source .venv/bin/activate"
