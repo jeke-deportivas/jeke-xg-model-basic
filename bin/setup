@@ -4,6 +4,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 REQUIRED_VERSION=$(cat .python-version)
+PYENV_PYTHON="$HOME/.pyenv/versions/$REQUIRED_VERSION/bin/python"
 
 if command -v pyenv &> /dev/null; then
     if ! pyenv versions | grep -q "$REQUIRED_VERSION"; then
@@ -12,17 +13,20 @@ if command -v pyenv &> /dev/null; then
     fi
 fi
 
-CURRENT_VERSION=$(python --version 2>&1 | cut -d' ' -f2)
-if [[ "$CURRENT_VERSION" != "$REQUIRED_VERSION" ]]; then
-    echo "Error: Se requiere Python $REQUIRED_VERSION pero tienes $CURRENT_VERSION"
+if [[ ! -f "$PYENV_PYTHON" ]]; then
+    echo "Error: Python $REQUIRED_VERSION no encontrado en $PYENV_PYTHON"
     echo "Instala la versión correcta con: pyenv install $REQUIRED_VERSION"
     exit 1
 fi
 
-python -m venv .venv
+echo "Usando Python $REQUIRED_VERSION desde pyenv"
+"$PYENV_PYTHON" -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
+
+# Registrar kernel para Jupyter
+python -m ipykernel install --user --name jeke-xg --display-name "Python (jeke-xg)"
 
 echo ""
 echo "Setup completado. Activa el entorno con:"
