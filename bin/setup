@@ -25,6 +25,9 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
+# Registrar kernel para Jupyter
+python -m ipykernel install --user --name jeke-xg --display-name "Python (jeke-xg)"
+
 echo ""
 echo "Setup completado. Activa el entorno con:"
 echo "  source .venv/bin/activate"

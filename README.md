@@ -6,40 +6,16 @@ Este repositorio contiene un **notebook Jupyter** que reproduce el experimento d
 
 ## 📦 Requisitos
 
-- **Python 3.13.9** (recomendado usar [pyenv](https://github.com/pyenv/pyenv) para fijar la versión local).
-- [pip](https://pip.pypa.io/en/stable/).
-- JupyterLab.
-
-⚠️ **Importante**: este notebook depende de `understatapi`, que fuerza `requests==2.25.1`.  
-Por eso se recomienda aislarlo en un entorno virtual específico.
+- **Python 3.13.11** (recomendado usar [pyenv](https://github.com/pyenv/pyenv))
+- [pip](https://pip.pypa.io/en/stable/)
 
 ## 🚀 Instalación
-
-Clona el repo y crea un entorno virtual:
 
 ```bash
 git clone https://github.com/jeke-deportivas/jeke-xg-model-basic.git
 cd jeke-xg-model-basic
-
-# asegúrate de estar en Python 3.13.9
-pyenv local 3.13.9
-
-# crea el entorno
-python3 -m venv .venv-understatapi
-source .venv-understatapi/bin/activate
-```
-
-Instala dependencias desde `requirements.txt`:
-
-```bash
-pip install -U pip
-pip install -r requirements.txt
-```
-
-Registra el kernel para Jupyter:
-
-```bash
-python -m ipykernel install --user --name jeke-understatapi --display-name "Python (understatapi req225)"
+bin/setup
+source .venv/bin/activate
 ```
 
 ## ▶️ Uso
@@ -52,7 +28,7 @@ python -m ipykernel install --user --name jeke-understatapi --display-name "Pyth
 
 2. Abre el archivo `jeke-xg-model-prototype.ipynb`.
 
-3. Selecciona el kernel **Python (understatapi req225)**.
+3. Selecciona el kernel **Python (jeke-xg)**.
 
 4. Ejecuta las celdas en orden.
    El notebook descarga los datos de **Understat** para la liga y temporadas definidas en:
