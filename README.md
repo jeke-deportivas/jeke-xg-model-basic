@@ -57,7 +57,7 @@ source .venv/bin/activate
   |--------|-----|
   | Longitudinal (solo X) | 0.888 |
   | Euclidiano (X + Y) | 0.917 |
-  | **Exponencial** | **0.947** |
+  | **Decaimiento Exponencial** | **0.947** |
 * Genera inputs para modelo Poisson (predicciones de partido).
 * Muestra resultados por equipo y condición local/visitante.
 
