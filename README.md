@@ -1,8 +1,18 @@
-# ⚽ Power Curve xG - Experimento en Jupyter
-Este repositorio contiene un **notebook Jupyter** que reproduce el experimento de [Jeke Deportivas en YouTube](https://youtu.be/0gqfQWc6teQ) sobre la **curva de potencia para modelar goles esperados (xG)** en fútbol, utilizando datos de [Understat](https://understat.com).
+# ⚽ Modelo xG con Decaimiento Exponencial
+
+Modelo de **goles esperados (xG)** basado en distancia euclidiana y decaimiento exponencial, con un **R² = 0.947**.
+
+## 📐 Fórmula
+
+```
+xG = e^(-d/k) × a + b
+```
+
+Donde `d = √(dx² + dy²)` es la distancia euclidiana al centro de la portería (teorema de Pitágoras).
 
 ## 🧪 Pruébalo sin instalar nada
-👉 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-model-prototype.ipynb) <<<
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-model-prototype.ipynb)
 
 ## 📦 Requisitos
 
@@ -38,21 +48,23 @@ source .venv/bin/activate
    SEASON = ["2024", "2025"]
    ```
 
-   y luego entrena la **Power Curve** para estimar probabilidades de gol en función de la distancia.
-
 ## 📊 Qué hace este notebook
 
 * Descarga todos los partidos de una liga/temporadas desde Understat.
-* Extrae tiros y calcula distancia → probabilidad de gol.
-* Ajusta una curva de potencia \$p(\text{gol}) = a \cdot d^b\$.
-* Evalúa el modelo con métrica R².
-* Muestra resultados por equipo, temporada y condición local/visitante.
+* Extrae tiros y calcula distancia euclidiana al centro de la portería.
+* Compara tres modelos:
+  | Modelo | R² |
+  |--------|-----|
+  | Longitudinal (solo X) | 0.888 |
+  | Euclidiano (X + Y) | 0.917 |
+  | **Exponencial** | **0.947** |
+* Genera inputs para modelo Poisson (predicciones de partido).
+* Muestra resultados por equipo y condición local/visitante.
 
 ## 📝 Notas
 
-* La librería `understatapi` usa scraping, por lo que puede tardar algunos minutos en descargar toda una temporada.
+* La librería `jeke-understat-scrapper` usa scraping, por lo que puede tardar algunos minutos en descargar toda una temporada.
 * Para evitar bloqueos, el código incluye `sleep` entre requests.
-* Los resultados son **experimentales** y están pensados como base para exploración y aprendizaje.
 
 ## 📄 Licencia
 
