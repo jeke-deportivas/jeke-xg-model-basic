@@ -12,7 +12,11 @@ Donde `d = √(dx² + dy²)` es la distancia euclidiana al centro de la porterí
 
 ## 🧪 Pruébalo sin instalar nada
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-model-prototype.ipynb)
+| Notebook | Descripción |
+|----------|-------------|
+| [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-lite.ipynb) | **Lite** - Solo Inputs Jeknica Poisson |
+| [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-model.ipynb) | **Modelo** - Solo exponencial + rankings |
+| [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jeke-deportivas/jeke-xg-model-basic/main?urlpath=%2Fdoc%2Ftree%2Fjeke-xg-model-prototype.ipynb) | **Prototipo** - Proceso completo, compara modelos |
 
 ## 📦 Requisitos
 
@@ -48,18 +52,26 @@ source .venv/bin/activate
    SEASON = ["2024", "2025"]
    ```
 
-## 📊 Qué hace este notebook
+## 📊 Qué hace cada notebook
 
-* Descarga todos los partidos de una liga/temporadas desde Understat.
-* Extrae tiros y calcula distancia euclidiana al centro de la portería.
+### Lite (`jeke-xg-lite.ipynb`)
+* Descarga tiros de una liga/temporada desde Understat
+* Calcula xG con modelo exponencial
+* Genera inputs Jeknica Poisson por equipo
+
+### Modelo (`jeke-xg-model.ipynb`)
+* Proceso educativo del modelo exponencial
+* Rankings ofensivos y defensivos por equipo
+* Consulta de xG por partido
+
+### Prototipo (`jeke-xg-model-prototype.ipynb`)
+* Proceso completo de investigación
 * Compara tres modelos:
   | Modelo | R² |
   |--------|-----|
   | Longitudinal (solo X) | 0.888 |
   | Euclidiano (X + Y) | 0.917 |
   | **Decaimiento Exponencial** | **0.947** |
-* Genera inputs para modelo Poisson (predicciones de partido).
-* Muestra resultados por equipo y condición local/visitante.
 
 ## 📝 Notas
 
