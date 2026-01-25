@@ -62,6 +62,7 @@ source .venv/bin/activate
 ### Modelo (`jeke-xg-model.ipynb`)
 * Proceso educativo del modelo exponencial
 * Rankings ofensivos y defensivos por equipo
+* Análisis por jugador: xG, xA y over/under performance
 * Consulta de xG por partido
 
 ### Prototipo (`jeke-xg-model-prototype.ipynb`)
